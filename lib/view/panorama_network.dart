@@ -1,7 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/blocs/theta_bloc.dart';
 import 'package:flutter_application_1/blocs/theta_event.dart';
 import 'package:flutter_application_1/blocs/theta_state.dart';
+import 'package:flutter_application_1/data/jpeg.dart';
 import 'package:flutter_application_1/view/hotspot_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:panorama_viewer/panorama_viewer.dart';
@@ -17,10 +19,9 @@ class PanoramaNetwork extends StatefulWidget {
 class _SecondScreenState extends State<PanoramaNetwork> {
   final GlobalKey<PanoramaState> _widgetInstanceKey = GlobalKey();
 
-  get jpeg => null;
-
   @override
   Widget build(BuildContext context) {
+    final jpegFilesProvider = context.watch<JpgFilesProvider>();
     return BlocBuilder<ThetaBloc, ThetaState>(
       builder: (context, state) {
         return Scaffold(
@@ -38,9 +39,17 @@ class _SecondScreenState extends State<PanoramaNetwork> {
                           text: "Explore",
                           icon: Icons.open_in_browser,
                           onPressed: () {
-                            context
-                                .read<ThetaBloc>()
-                                .add(IncrementJpgIndexEvent());
+                            if (state.jpegIndex <
+                                jpegFilesProvider.jpeg.length - 1) {
+                              context
+                                  .read<ThetaBloc>()
+                                  .add(IncrementJpgIndexEvent());
+                            } else {
+                              context
+                                  .read<ThetaBloc>()
+                                  .add(ZeroJpgIndexEvent());
+                            }
+
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -49,7 +58,9 @@ class _SecondScreenState extends State<PanoramaNetwork> {
                           }),
                     ),
                   ],
-                  child: Image.asset(jpeg[state.jpegIndex])),
+                  child: Image(
+                      image: CachedNetworkImageProvider(
+                          jpegFilesProvider.jpeg[state.jpegIndex].path))),
               Padding(
                 padding: const EdgeInsets.only(top: 30),
                 child: Row(

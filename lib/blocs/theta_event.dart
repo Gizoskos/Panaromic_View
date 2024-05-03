@@ -8,3 +8,5 @@ abstract class ThetaEvent extends Equatable {
 }
 
 class IncrementJpgIndexEvent extends ThetaEvent {}
+
+class ZeroJpgIndexEvent extends ThetaEvent {}

@@ -5,7 +5,7 @@ class ThetaState extends Equatable {
   final String message;
   final int jpegIndex;
 
-  const ThetaState({required this.message, this.jpegIndex = 0});
+  const ThetaState({required this.message, this.jpegIndex = 1});
 
   factory ThetaState.initial() =>
       const ThetaState(message: "Response from Camera");

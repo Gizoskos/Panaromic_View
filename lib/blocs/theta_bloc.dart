@@ -8,5 +8,8 @@ class ThetaBloc extends Bloc<ThetaEvent, ThetaState> {
     on<IncrementJpgIndexEvent>((event, emit) async {
       emit(state.copyWith(jpegIndex: state.jpegIndex + 1));
     });
+    on<ZeroJpgIndexEvent>((event, emit) async {
+      emit(state.copyWith(jpegIndex: 0));
+    });
   }
 }
