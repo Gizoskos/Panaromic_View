@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/view/hotspot_button.dart';
+import 'package:flutter_application_1/view/panorama_network.dart';
 import 'package:panorama_viewer/panorama_viewer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,33 +15,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<PanoramaState> _widgetInstanceKey = GlobalKey();
 
-  Widget hotspotButton(
-      {String? text, IconData? icon, VoidCallback? onPressed}) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        TextButton(
-          style: ButtonStyle(
-            shape: MaterialStateProperty.all(CircleBorder()),
-            backgroundColor: MaterialStateProperty.all(Colors.black38),
-            foregroundColor: MaterialStateProperty.all(Colors.white),
-          ),
-          onPressed: onPressed,
-          child: Icon(icon),
-        ),
-        text != null
-            ? Container(
-                padding: EdgeInsets.all(4.0),
-                decoration: BoxDecoration(
-                    color: Colors.black38,
-                    borderRadius: BorderRadius.all(Radius.circular(4))),
-                child: Center(child: Text(text)),
-              )
-            : Container(),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,12 +26,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 Hotspot(
                   latitude: -15.0,
                   longitude: -129.0,
-                  width: 90,
-                  height: 75,
-                  widget: hotspotButton(
-                      text: "Next scene",
+                  width: 300,
+                  height: 300,
+                  widget: HotSpotButton(
+                      text: "Explore",
                       icon: Icons.open_in_browser,
-                      onPressed: () {}),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const PanoramaNetwork()));
+                      }),
                 ),
               ],
               child: Image.asset('assets/images/3.jpg')),
