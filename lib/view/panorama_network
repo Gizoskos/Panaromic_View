@@ -39,7 +39,7 @@ class _FourthScreenState extends State<PanoramaNetwork3> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        const PanoramaNetwork2()));
+                                        const PanoramaNetwork()));
                           }),
                     ),
                   ],

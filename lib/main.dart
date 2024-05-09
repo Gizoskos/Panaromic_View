@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/blocs/theta_bloc.dart';
 import 'package:flutter_application_1/blocs/theta_state.dart';
-import 'package:flutter_application_1/data/jpeg.dart';
 import 'package:flutter_application_1/view/panorama_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
