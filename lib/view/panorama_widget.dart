@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/view/hotspot_button.dart';
-import 'package:flutter_application_1/view/panorama_network.dart';
+import 'package:flutter_application_1/view/panorama_network';
 import 'package:panorama_viewer/panorama_viewer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       }),
                 ),
               ],
-              child: Image.asset('assets/images/3.jpg')),
+              child: Image.asset('assets/images/1.jpg')),
           Padding(
             padding: const EdgeInsets.only(top: 30),
             child: Row(

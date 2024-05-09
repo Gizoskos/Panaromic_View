@@ -19,9 +19,6 @@ class MainApp extends StatelessWidget {
         BlocProvider<ThetaBloc>(
           create: (context) => ThetaBloc(),
         ),
-        ChangeNotifierProvider<JpgFilesProvider>(
-          create: (_) => JpgFilesProvider(),
-        ),
       ],
       child: MaterialApp(
         home: BlocBuilder<ThetaBloc, ThetaState>(
