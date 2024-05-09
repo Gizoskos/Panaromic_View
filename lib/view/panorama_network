@@ -119,7 +119,7 @@ class _ThirdScreenState extends State<PanoramaNetwork2> {
                           }),
                     ),
                   ],
-                  child: Image.asset('assets/images/3.jpg')),
+                  child: Image.asset('assets/images/2.jpg')),
               Padding(
                 padding: const EdgeInsets.only(top: 30),
                 child: Row(
@@ -196,7 +196,7 @@ class _SecondScreenState extends State<PanoramaNetwork> {
                           }),
                     ),
                   ],
-                  child: Image.asset('assets/images/2.jpg')),
+                  child: Image.asset('assets/images/1.jpg')),
               Padding(
                 padding: const EdgeInsets.only(top: 30),
                 child: Row(

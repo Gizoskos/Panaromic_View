@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       }),
                 ),
               ],
-              child: Image.asset('assets/images/1.jpg')),
+              child: Image.asset('assets/images/8.jpg')),
           Padding(
             padding: const EdgeInsets.only(top: 30),
             child: Row(
