@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/blocs/theta_bloc.dart';
 import 'package:flutter_application_1/blocs/theta_event.dart';
 import 'package:flutter_application_1/blocs/theta_state.dart';
+import 'package:flutter_application_1/view/SecondPanoramaViewer';
 import 'package:flutter_application_1/view/hotspot_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:panorama_viewer/panorama_viewer.dart';
@@ -38,18 +39,15 @@ class _SecondScreenState extends State<PanoramaNetwork> {
                           text: "Explore",
                           icon: Icons.open_in_browser,
                           onPressed: () {
-                            context
-                                .read<ThetaBloc>()
-                                .add(IncrementJpgIndexEvent());
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        const PanoramaNetwork()));
+                                        const SecondPanoramaNetwork()));
                           }),
                     ),
                   ],
-                  child: Image.asset(jpeg[state.jpegIndex])),
+                  child: Image.asset('assets/images/2.jpg')),
               Padding(
                 padding: const EdgeInsets.only(top: 30),
                 child: Row(

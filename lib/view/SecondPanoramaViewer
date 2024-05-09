@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/view/hotspot_button.dart';
-import 'package:flutter_application_1/view/panorama_network.dart';
 import 'package:panorama_viewer/panorama_viewer.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({
-    super.key,
-  });
+class SecondPanoramaNetwork extends StatefulWidget {
+  const SecondPanoramaNetwork({Key? key}) : super(key: key);
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<PanoramaState> _widgetInstanceKey = GlobalKey();
 
   @override
@@ -21,25 +13,29 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Stack(
         children: [
           PanoramaViewer(
-              key: _widgetInstanceKey,
-              hotspots: [
-                Hotspot(
-                  latitude: -15.0,
-                  longitude: -129.0,
-                  width: 300,
-                  height: 300,
-                  widget: HotSpotButton(
-                      text: "Explore",
-                      icon: Icons.open_in_browser,
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const PanoramaNetwork()));
-                      }),
+            key: _widgetInstanceKey,
+            hotspots: [
+              Hotspot(
+                latitude: -15.0,
+                longitude: -129.0,
+                width: 300,
+                height: 300,
+                widget: HotSpotButton(
+                  text: "Explore",
+                  icon: Icons.open_in_browser,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SecondPanoramaNetwork(),
+                      ),
+                    );
+                  },
                 ),
-              ],
-              child: Image.asset('assets/images/1.jpg')),
+              ),
+            ],
+            child: Image.asset('assets/images/3.jpg'), // Başka bir asset resmi
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 30),
             child: Row(
